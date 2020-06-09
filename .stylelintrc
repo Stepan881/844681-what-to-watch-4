@@ -1,3 +1,4 @@
 {
+  "rules": {"eslint-disable-next-line", "react/prop-types"},
   "extends": "stylelint-config-htmlacademy"
 }
