@@ -7,7 +7,7 @@ const App = (props) => {
   const film = props.film;
 
   return (
-    <Main FILM={film} />
+    <Main film={film} />
   );
 
 };
