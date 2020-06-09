@@ -1,13 +1,15 @@
 import React from "react";
+
 import Main from "../main/main.jsx";
 
 const App = (props) => {
-  const film = props.film;
- 
+  // eslint-disable-next-line react/prop-types
+  const FILM = props.FILM;
+
   return (
-    <Main film={film} />
+    <Main FILM={FILM} />
   );
-  
-}
+
+};
 
 export default App;
