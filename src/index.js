@@ -11,7 +11,7 @@ const FILM = {
 
 ReactDom.render(
     <App
-      FILM={FILM}
+      film={FILM}
     />,
     document.querySelector(`#root`)
 );

@@ -4,10 +4,10 @@ import Main from "../main/main.jsx";
 
 const App = (props) => {
   // eslint-disable-next-line react/prop-types
-  const FILM = props.FILM;
+  const film = props.film;
 
   return (
-    <Main FILM={FILM} />
+    <Main FILM={film} />
   );
 
 };

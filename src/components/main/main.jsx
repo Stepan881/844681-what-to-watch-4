@@ -3,11 +3,11 @@ import React from "react";
 
 const Main = (props) => {
   // eslint-disable-next-line react/prop-types
-  const FILM_NAME = props.FILM.NAME;
+  const filmName = props.film.NAME;
   // eslint-disable-next-line react/prop-types
-  const FILM_GENRE = props.FILM.GENRE;
+  const filmGenre = props.film.GENRE;
   // eslint-disable-next-line react/prop-types
-  const FILM_YEAR = props.FILM.YEAR;
+  const filmYear = props.film.YEAR;
 
   return (
     <section className="movie-card">
@@ -40,10 +40,10 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{FILM_NAME}</h2>
+            <h2 className="movie-card__title">{filmName}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{FILM_GENRE}</span>
-              <span className="movie-card__year">{FILM_YEAR}</span>
+              <span className="movie-card__genre">{filmGenre}</span>
+              <span className="movie-card__year">{filmYear}</span>
             </p>
 
             <div className="movie-card__buttons">
