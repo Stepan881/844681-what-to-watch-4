@@ -3,12 +3,18 @@ import PropTypes from "prop-types";
 
 import Main from "../main/main.jsx";
 
+const showMoreButtonClick = () => {};
+
 const App = (props) => {
   const film = props.film;
   const filmNames = props.filmNames;
 
   return (
-    <Main film={film} filmNames={filmNames} />
+    <Main
+      film={film}
+      filmNames={filmNames}
+      onShowMoreButtonClick={showMoreButtonClick}
+    />
   );
 
 };
