@@ -5,17 +5,17 @@ import Main from "../main/main.jsx";
 
 const App = (props) => {
   const film = props.film;
-  const filmsName = props.filmsName;
+  const filmNames = props.filmNames;
 
   return (
-    <Main film={film} filmsName={filmsName} />
+    <Main film={film} filmNames={filmNames} />
   );
 
 };
 
 App.propTypes = {
   film: PropTypes.object.isRequired,
-  filmsName: PropTypes.array.isRequired,
+  filmNames: PropTypes.array.isRequired,
 };
 
 export default App;

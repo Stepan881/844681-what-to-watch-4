@@ -8,11 +8,11 @@ const FILM = {
   GENRE: `Drama`,
   YEAR: 2014,
 };
-const FILMS_NAME = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+const FILM_NAMES = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
 
 ReactDom.render(
     <App
-      film={FILM} filmsName={FILMS_NAME}
+      film={FILM} filmNames={FILM_NAMES}
     />,
     document.querySelector(`#root`)
 );

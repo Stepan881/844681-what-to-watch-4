@@ -6,7 +6,7 @@ const Main = (props) => {
   const filmName = props.film.NAME;
   const filmGenre = props.film.GENRE;
   const filmYear = props.film.YEAR;
-  const filmsName = props.filmsName;
+  const filmNames = props.filmNames;
 
   return (
     <React.Fragment>
@@ -104,7 +104,7 @@ const Main = (props) => {
 
           <div className="catalog__movies-list">
 
-            {filmsName.map((name) => (
+            {filmNames.map((name) => (
               <article key={name} className="small-movie-card catalog__movies-card">
                 <div className="small-movie-card__image">
                   <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
@@ -145,7 +145,7 @@ Main.propTypes = {
     GENRE: PropTypes.string.isRequired,
     YEAR: PropTypes.number.isRequired,
   }).isRequired,
-  filmsName: PropTypes.array.isRequired,
+  filmNames: PropTypes.array.isRequired,
 };
 
 export default Main;
