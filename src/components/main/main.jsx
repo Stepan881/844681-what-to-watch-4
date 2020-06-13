@@ -7,6 +7,7 @@ const Main = (props) => {
   const filmGenre = props.film.GENRE;
   const filmYear = props.film.YEAR;
   const filmNames = props.filmNames;
+  const onShowMoreButtonClick = props.onShowMoreButtonClick;
 
   return (
     <React.Fragment>
@@ -117,7 +118,11 @@ const Main = (props) => {
           </div>
 
           <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
+            <button
+              onClick={onShowMoreButtonClick}
+              className="catalog__button" type="button"
+            >
+              Show more</button>
           </div>
         </section>
 
@@ -145,7 +150,8 @@ Main.propTypes = {
     GENRE: PropTypes.string.isRequired,
     YEAR: PropTypes.number.isRequired,
   }).isRequired,
-  filmNames: PropTypes.array.isRequired,
+  filmNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onShowMoreButtonClick: PropTypes.func.isRequired,
 };
 
 export default Main;
