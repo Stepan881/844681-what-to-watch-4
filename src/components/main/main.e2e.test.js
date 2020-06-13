@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-import WelcomeScreen from "./main";
+import Main from "./main";
 
 const FILM = {
   NAME: `The Grand Budapest Hotel`,
@@ -19,7 +19,7 @@ it(`Should 'show more' button be pressed`, () => {
   const onShowMoreButtonClick = jest.fn();
 
   const welcomeScreen = shallow(
-      <WelcomeScreen
+      <Main
         film={FILM}
         filmNames={FILM_NAMES}
         onShowMoreButtonClick={onShowMoreButtonClick}
