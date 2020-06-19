@@ -2,19 +2,18 @@ import React from "react";
 import renderer from "react-test-renderer";
 
 import Main from "./main";
+import mock from "../../mocks/films.js";
 
-const FILM = {
-  NAME: `The Grand Budapest Hotel`,
-  GENRE: `Drama`,
-  YEAR: 2014,
+const onShowMoreButtonClick = (evt) => {
+  evt.preventDefault();
 };
-const FILM_NAMES = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
 
 it(`Should Main render correctly`, () => {
   const tree = renderer
     .create(<Main
-      film={FILM}
-      filmNames={FILM_NAMES}
+      film={mock.FILM}
+      smallFilms={mock.films}
+      onShowMoreButtonClick={onShowMoreButtonClick}
     />)
     .toJSON();
 
