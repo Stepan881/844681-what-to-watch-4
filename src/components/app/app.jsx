@@ -7,21 +7,33 @@ const showMoreButtonClick = () => {};
 
 const App = (props) => {
   const film = props.film;
-  const filmNames = props.filmNames;
+  const smallFilms = props.smallFilms;
 
   return (
     <Main
       film={film}
-      filmNames={filmNames}
+      smallFilms={smallFilms}
       onShowMoreButtonClick={showMoreButtonClick}
     />
   );
 
 };
 
+export default App;
+
+
 App.propTypes = {
-  film: PropTypes.object.isRequired,
-  filmNames: PropTypes.array.isRequired,
+  film: PropTypes.shape({
+    GENRE: PropTypes.string.isRequired,
+    NAME: PropTypes.string.isRequired,
+    YEAR: PropTypes.number.isRequired,
+  }).isRequired,
+  smallFilms: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+      })
+  ).isRequired,
 };
 
-export default App;
+

@@ -3,13 +3,7 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 import Main from "./main";
-
-const FILM = {
-  NAME: `The Grand Budapest Hotel`,
-  GENRE: `Drama`,
-  YEAR: 2014,
-};
-const FILM_NAMES = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+import mock from "../../mocks/films.js";
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -20,8 +14,8 @@ it(`Should 'show more' button be pressed`, () => {
 
   const welcomeScreen = shallow(
       <Main
-        film={FILM}
-        filmNames={FILM_NAMES}
+        film={mock.FILM}
+        smallFilms={mock.films}
         onShowMoreButtonClick={onShowMoreButtonClick}
       />
   );
