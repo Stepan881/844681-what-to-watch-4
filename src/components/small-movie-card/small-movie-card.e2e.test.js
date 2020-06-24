@@ -10,7 +10,7 @@ Enzyme.configure({
 });
 
 it(`hover over movie`, () => {
-  const filmHoverHandler = jest.fn();
+  const filmHoverHandler = SmallMovieCard.prototype._onMouseEnter = jest.fn();
 
   const movieCard = shallow(
       <SmallMovieCard
@@ -24,7 +24,7 @@ it(`hover over movie`, () => {
 });
 
 it(`removes the cursor from the movie`, () => {
-  const filmLeaveHandler = jest.fn();
+  const filmLeaveHandler = SmallMovieCard.prototype._onMouseLeave = jest.fn();
 
   const movieCard = shallow(
       <SmallMovieCard

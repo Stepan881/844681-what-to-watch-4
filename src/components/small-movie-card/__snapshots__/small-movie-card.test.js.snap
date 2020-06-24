@@ -14,7 +14,7 @@ exports[`MovieCard render card 1`] = `
     width="280"
   >
     <source
-      src="sintel_trailer-480p.mp4"
+      src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
       type="video/mp4"
     />
   </video>
