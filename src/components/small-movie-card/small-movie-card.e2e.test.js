@@ -3,7 +3,6 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 import SmallMovieCard from "./small-movie-card.jsx";
-
 import mock from "../../mocks/films.js";
 
 Enzyme.configure({
@@ -11,14 +10,27 @@ Enzyme.configure({
 });
 
 it(`hover over movie`, () => {
-  const filmHoverHandler = jest.fn();
+  const filmHoverHandler = SmallMovieCard.prototype._onMouseEnter = jest.fn();
 
-  const smallMovieCard = shallow(
-      <SmallMovieCard film={mock.films[0]} onMouseEnter={filmHoverHandler} />
+  const movieCard = shallow(
+      <SmallMovieCard
+        film={mock.films[0]}
+      />
   );
 
-  smallMovieCard.simulate(`mouseEnter`);
-  expect(filmHoverHandler.mock.calls[0][0]).toEqual(mock.films[0]);
+  movieCard.simulate(`mouseEnter`);
+  expect(filmHoverHandler).toHaveBeenCalledTimes(1);
 });
 
+it(`removes the cursor from the movie`, () => {
+  const filmLeaveHandler = SmallMovieCard.prototype._onMouseLeave = jest.fn();
 
+  const movieCard = shallow(
+      <SmallMovieCard
+        film={mock.films[0]}
+      />
+  );
+
+  movieCard.simulate(`mouseleave`);
+  expect(filmLeaveHandler).toHaveBeenCalledTimes(1);
+});

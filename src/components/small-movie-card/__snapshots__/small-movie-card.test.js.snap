@@ -4,17 +4,20 @@ exports[`MovieCard render card 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
-  <div
+  <video
     className="small-movie-card__image"
+    height="175"
+    muted={true}
+    poster="img/the-grand-budapest-hotel-poster.jpg"
+    width="280"
   >
-    <img
-      alt="The Grand Budapest Hotel"
-      height="175"
-      src="img/the-grand-budapest-hotel-poster.jpg"
-      width="280"
+    <source
+      src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+      type="video/mp4"
     />
-  </div>
+  </video>
   <h3
     className="small-movie-card__title"
   >
