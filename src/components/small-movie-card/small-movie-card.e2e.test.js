@@ -1,13 +1,8 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import {shallow} from "enzyme";
 
 import SmallMovieCard from "./small-movie-card.jsx";
 import mock from "../../mocks/films.js";
-
-Enzyme.configure({
-  adapter: new Adapter(),
-});
 
 it(`hover over movie`, () => {
   const filmHoverHandler = SmallMovieCard.prototype._onMouseEnter = jest.fn();
