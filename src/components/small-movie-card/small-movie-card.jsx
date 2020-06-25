@@ -11,14 +11,17 @@ class SmallMovieCard extends PureComponent {
       isPlaying: false,
       timeoutId: null,
     };
+
+    this._onMouseEnter = this._onMouseEnter.bind(this);
+    this._onMouseLeave = this._onMouseLeave.bind(this);
   }
 
   render() {
     const {film} = this.props;
     return (
       <article
-        onMouseEnter={this._onMouseEnter.bind(this)}
-        onMouseLeave={this._onMouseLeave.bind(this)}
+        onMouseEnter={this._onMouseEnter}
+        onMouseLeave={this._onMouseLeave}
         className="small-movie-card catalog__movies-card">
         <VideoPlayer
           film={film}

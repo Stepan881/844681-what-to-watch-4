@@ -15,7 +15,6 @@ it(`hover over movie`, () => {
   const movieCard = shallow(
       <SmallMovieCard
         film={mock.films[0]}
-        onMouseEnter={filmHoverHandler}
       />
   );
 
@@ -29,7 +28,6 @@ it(`removes the cursor from the movie`, () => {
   const movieCard = shallow(
       <SmallMovieCard
         film={mock.films[0]}
-        onMouseLeave={filmLeaveHandler}
       />
   );
 
