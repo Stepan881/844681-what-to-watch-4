@@ -18,11 +18,11 @@ class MovieList extends PureComponent {
   }
 
   render() {
-    const {smallFilms} = this.props;
+    const {films} = this.props;
 
     return (
       <React.Fragment>
-        {smallFilms.map((film) => (
+        {films.map((film) => (
           <SmallMovieCard
             key={film.name}
             film={film}
@@ -37,10 +37,12 @@ class MovieList extends PureComponent {
 export default MovieList;
 
 MovieList.propTypes = {
-  smallFilms: PropTypes.arrayOf(
+  films: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired,
         img: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        preview: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
       })
   ).isRequired,
 };

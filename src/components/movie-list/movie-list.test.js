@@ -1,13 +1,25 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import configureStore from "redux-mock-store";
+import {Provider} from "react-redux";
 
 import MovieList from './movie-list.jsx';
-import mock from "../../mocks/films.js";
+import films from "../../mocks/films";
+
+const mockStore = configureStore([]);
 
 it(`Render 8 cards`, () => {
-  const films = renderer
-    .create(<MovieList smallFilms={mock.films} />)
+  const store = mockStore({
+    genre: `All genres`,
+    films
+  });
+
+  const filmsList = renderer
+    .create(
+        <Provider store={store}>
+          <MovieList films={films} />
+        </Provider>)
     .toJSON();
 
-  expect(films).toMatchSnapshot();
+  expect(filmsList).toMatchSnapshot();
 });
