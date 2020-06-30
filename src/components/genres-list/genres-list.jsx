@@ -8,33 +8,32 @@ class GenresList extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.allFilms = this.props.films;
-
+    this.allGenres = this.getGenresList();
     this.getGenresList = this.getGenresList.bind(this);
-
   }
 
   getGenresList() {
     const genres = new Set();
     genres.add(`All genres`);
-    this.allFilms.forEach((film) => genres.add(film.genre));
+    this.props.films.forEach((film) => genres.add(film.genre));
     return Array.from(genres).slice(0, genres.size);
+  }
+
+  onClickHandler(genreName, onClick) {
+    onClick(genreName);
   }
 
   render() {
     const {genre, onClick} = this.props;
-    const genresList = this.getGenresList();
 
     return <ul className="catalog__genres-list">
-      {genresList.map((item) => {
+      {this.allGenres.map((item) => {
         const activeClass = genre === item ? `catalog__genres-item--active` : ``;
 
         return <li
           key={item}
           className={`catalog__genres-item ${activeClass}`}
-          onClick={()=>{
-            onClick(item);
-          }}
+          onClick={this.onClickHandler.bind(this, item, onClick)}
         >
           <a href="#" className="catalog__genres-link">{item}</a>
         </li>;
