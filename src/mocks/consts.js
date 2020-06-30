@@ -11,4 +11,4 @@ const Genres = {
   THRILLERS: `Thrillers`,
 };
 
-export {Genres};
+export default Genres;

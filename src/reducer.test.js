@@ -1,5 +1,5 @@
 import {reducer, ActionTypes, ActionCreator} from "./reducer.js";
-import {Genres} from "./utils.js";
+import Genres from "./mocks/consts.js";
 import films from "./mocks/films.js";
 
 it(`The initial state when loading the application.`, ()=>{
