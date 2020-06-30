@@ -1,21 +1,22 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import {shallow} from "enzyme";
 
 import Main from "./main";
-import mock from "../../mocks/films.js";
+import films from "../../mocks/films.js";
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
+const FILM = {
+  NAME: `The Grand Budapest Hotel`,
+  GENRE: `Drama`,
+  YEAR: 2014,
+};
 
 it(`Should 'show more' button be pressed`, () => {
   const onShowMoreButtonClick = jest.fn();
 
   const welcomeScreen = shallow(
       <Main
-        film={mock.FILM}
-        smallFilms={mock.films}
+        film={FILM}
+        films={films}
         onShowMoreButtonClick={onShowMoreButtonClick}
       />
   );

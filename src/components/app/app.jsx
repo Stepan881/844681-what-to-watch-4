@@ -1,26 +1,40 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
 import Main from "../main/main.jsx";
 
-const showMoreButtonClick = () => {};
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
 
-const App = (props) => {
-  const film = props.film;
-  const smallFilms = props.smallFilms;
+    this.showMoreButtonClick = this.showMoreButtonClick.bind(this);
+  }
 
-  return (
-    <Main
-      film={film}
-      smallFilms={smallFilms}
-      onShowMoreButtonClick={showMoreButtonClick}
-    />
-  );
+  showMoreButtonClick(evt) {
+    evt.preventDefault();
+  }
 
-};
+  render() {
+    const film = this.props.film;
+    const films = this.props.films;
 
-export default App;
+    return (
+      <Main
+        film={film}
+        films={films}
+        onShowMoreButtonClick={this.showMoreButtonClick}
+      />
+    );
+  }
+}
 
+const mapStateToProps = (state) => ({
+  films: state.films
+});
+
+export {App};
+export default connect(mapStateToProps)(App);
 
 App.propTypes = {
   film: PropTypes.shape({
@@ -28,10 +42,12 @@ App.propTypes = {
     NAME: PropTypes.string.isRequired,
     YEAR: PropTypes.number.isRequired,
   }).isRequired,
-  smallFilms: PropTypes.arrayOf(
+  films: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired,
         img: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        preview: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
       })
   ).isRequired,
 };
